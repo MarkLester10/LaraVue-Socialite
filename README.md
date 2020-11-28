@@ -5,6 +5,10 @@
 
 </p>
 
+## About Laravel
+
+Socialite will work on 127.0.0.1:8000 port, so it is advisable to use php artisan serve. Will work on other platforms like vapor and Laragon soon.
+
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
