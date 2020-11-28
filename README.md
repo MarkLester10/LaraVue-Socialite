@@ -1,8 +1,9 @@
 <p align="center"><a href="https://laravel.com" target="_blank">
 <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a>
+</p>
 
-<img src="https://madewithnetwork.ams3.cdn.digitaloceanspaces.com/spatie-space-production/1553/socialite.jpg"></a>
-
+<p align="center">
+    <a href="https://laravel.com/docs/8.x/socialite" target="_blank"><img src="https://madewithnetwork.ams3.cdn.digitaloceanspaces.com/spatie-space-production/1553/socialite.jpg" width="400"></a>
 </p>
 
 ## About LaraVue
