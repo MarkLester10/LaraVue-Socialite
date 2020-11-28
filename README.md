@@ -9,6 +9,8 @@
 ## About LaraVue
 
 Socialite will work on 127.0.0.1:8000 port, so it is advisable to use php artisan serve. Will work on other platforms like vapor and Laragon soon.
+Facebook login is also available but unfortunately facebook oauth does not support 127.0.0.1:8000 port or localhost server, so I commented it for now.
+Password Resets for both user and admin is already created, registering new admin user can only be done inside admin dashboard. Use tinker to create an admin user.
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
