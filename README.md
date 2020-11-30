@@ -10,7 +10,15 @@
 
 Socialite will work on 127.0.0.1:8000 port, so it is advisable to use php artisan serve. Will work on other platforms like vapor and Laragon soon.
 Facebook login is also available but unfortunately facebook oauth does not support 127.0.0.1:8000 port or localhost server, so I commented it for now.
-Password Resets for both user and admin is already created, registering new admin user can only be done inside admin dashboard. Use tinker to create an admin user.
+Password Resets for both user and admin is already created.
+
+## Set up
+
+-   Setup database credentials and Mailtrap Credentials for email testing purposes
+-   Run php artisan migrate
+-   Add admin user via tinker
+-   For registering new admin user, make sure to setup your mailtrap credentials. Everytime you create admin user they will be notified via email with the link and url attach to it. They can use it to setup their password so they will be able to login as admin.
+-   I will work for roles and permissions for admin users soon. Feel free to make your own.
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>

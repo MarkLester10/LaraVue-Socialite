@@ -46,10 +46,18 @@ Route::group(['prefix' => 'login', 'namespace' => 'Auth'], function () {
     Route::get('/github/callback', 'LoginController@handleGithubCallback');
 });
 
+
+
 //Admin Routes
 Route::group(['prefix' => 'admin'], function () {
-    //admin dashboard
-    Route::get('/dashboard', 'Admin\AdminController@index')->name('admin.dashboard');
+
+    Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function () {
+        //admin dashboard
+        Route::get('/dashboard', 'AdminPagesController@index')->name('admin.dashboard');
+        //admin crud
+        Route::resource('/users', 'AdminController');
+    });
+
     Route::group(['namespace' => 'Auth'], function () {
         //admin login
         Route::get('/login', 'AdminLoginController@show')->name('admin.login');
@@ -57,15 +65,18 @@ Route::group(['prefix' => 'admin'], function () {
 
         //admin logout
         Route::post('/logout', 'AdminLoginController@logout')->name('admin.logout');
-
-        //admin register
-        Route::get('/register', 'AdminRegisterController@show')->name('admin.register');
-        Route::post('/register', 'AdminRegisterController@register');
-
         //admin password reset
         Route::get('/password/reset', 'AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
         Route::post('/password/email', 'AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
         Route::get('/password/reset/{token}', 'AdminResetPasswordController@showResetForm')->name('admin.password.reset');
         Route::post('/password/reset', 'AdminResetPasswordController@reset')->name('admin.password.update');
+
+        Route::group(['middleware' => 'auth:admin'], function () {
+            Route::get('/setpassword', 'SetPasswordController@create')->name('setpassword');
+            Route::post('/setpassword', 'SetPasswordController@store')->name('setpassword.store');
+        });
     });
 });
+
+//Invitation route
+Route::get('/invitation/{user}', 'Admin\AdminController@invitation')->name('invitation');
