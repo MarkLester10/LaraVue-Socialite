@@ -21,6 +21,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @notifyCss
+    @livewireStyles
 </head>
 <body>
     <div id="app">
@@ -40,7 +42,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto d-flex align-items-center">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -52,13 +54,19 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">{{ auth()->user()->name }}</a>
+                            </li>
                             <li class="nav-item dropdown">
-                                <img src=" {{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" style="border: 1px solid #cccccc; border-radius:5px; width: 39px; height: auto; float: left; margin-right:7px;">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" style="border: 1px solid #cccccc; border-radius:50%; width: 40px; height: 40px; float: left; margin-right:7px;">
+
                                 </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('user.profile') }}">
+                                    {{ __('Profile')}}
+                                </a>
                                 <a class="dropdown-item" href="{{ route('user.logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
@@ -80,5 +88,9 @@
             @yield('content')
         </main>
     </div>
+
+    <x:notify-messages />
+    @livewireScripts
+    @notifyJs
 </body>
 </html>

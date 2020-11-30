@@ -110,6 +110,7 @@ class LoginController extends Controller
             $user->save();
         }
 
+        //login if email exist
         Auth::login($user);
     }
 
