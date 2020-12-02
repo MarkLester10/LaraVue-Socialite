@@ -10,7 +10,7 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
               <li class="breadcrumb-item">{{ auth()->user()->name }}</li>
-              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+              <li class="breadcrumb-item active" aria-current="page">Profile</li>
             </ol>
           </nav>
           <!-- /Breadcrumb -->
@@ -20,7 +20,7 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="{{ auth()->user()->avatar }}" alt="Admin" class="rounded-circle" width="150">
+                    <img src="{{auth()->user()->avatar()}}" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
                       <h4>{{ auth()->user()->name }}</h4>
                       <p class="text-secondary mb-1">Full Stack Developer</p>

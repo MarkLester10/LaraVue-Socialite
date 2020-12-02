@@ -24,10 +24,15 @@ class PasswordUpdate extends Component
     {
         $data = [];
 
+        if (auth()->user()->password) {
+            $this->validate([
+                'newPassword' => ['required', 'string', 'max:16', 'confirmed'],
+                'currentPassword' => ['required', 'checkCurrentPasswordHashed:' . $this->current_hashed_password],
+            ]);
+        }
+
         $this->validate([
-            'newPassword' => ['required', 'max:16', 'confirmed'],
-            'newPassword_confirmation' => ['required'],
-            'currentPassword' => ['required', 'checkCurrentPasswordHashed:' . $this->current_hashed_password],
+            'newPassword' => ['required', 'string', 'max:16', 'confirmed'],
         ]);
 
 

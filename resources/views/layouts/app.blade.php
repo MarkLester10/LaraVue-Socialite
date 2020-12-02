@@ -59,7 +59,7 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" style="border: 1px solid #cccccc; border-radius:50%; width: 40px; height: 40px; float: left; margin-right:7px;">
+                                    <img src="{{auth()->user()->avatar()}}" alt="{{ Auth::user()->name }}" style="border-radius:50%; width: 40px; height: 40px; float: left; margin-right:7px;">
 
                                 </a>
 

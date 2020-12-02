@@ -5,10 +5,12 @@
 
          <form wire:submit.prevent="updatePassword">
              @csrf
-            <div class="form-group">
+
+             @if (auth()->user()->password)
+             <div class="form-group">
                 <label for="currentPassword">{{ __('Current Password') }}</label>
                 <div>
-                    <input wire:model="currentPassword" id="currentPassword" type="password" class="form-control @error('currentPassword') is-invalid @enderror" name="currentPassword" required>
+                    <input wire:model="currentPassword" id="currentPassword" type="password" class="form-control @error('currentPassword') is-invalid @enderror" name="currentPassword">
 
                     @error('currentPassword')
                         <span class="invalid-feedback" role="alert">
@@ -17,6 +19,7 @@
                     @enderror
                 </div>
             </div>
+             @endif
 
             <div class="form-group">
                 <label for="newPassword">{{ __('New Password') }}</label>

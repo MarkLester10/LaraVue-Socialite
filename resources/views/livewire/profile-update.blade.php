@@ -32,6 +32,20 @@
             </div>
 
             <div class="form-group">
+                <label for="avatar">{{ __('Avatar') }}</label>
+
+                <div>
+                    <input id="avatar" wire:model="avatar" type="file" class="form-control border-0 @error('avatar') is-invalid @enderror" name="avatar" required autofocus>
+
+                    @error('avatar')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group">
                 <div>
                     <button type="submit" class="btn btn-block w-100 btn-primary">
                         <span>
